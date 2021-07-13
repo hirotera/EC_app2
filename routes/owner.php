@@ -63,7 +63,7 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.update');
 
 Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
-                ->middleware('auth')
+                ->middleware('auth:owners')
                 ->name('verification.notice');
 
 Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
