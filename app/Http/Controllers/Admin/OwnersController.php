@@ -18,7 +18,9 @@ class OwnersController extends Controller
 
     public function index()
     {
-        $owners = Owner::select('id','name','created_at','email')->get();
+        $owners = Owner::select('id','name','created_at','email')
+        ->paginate(3);
+
         return view('admin.owners.index',
         compact('owners'));
     }
