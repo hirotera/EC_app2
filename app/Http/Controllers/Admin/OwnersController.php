@@ -19,7 +19,7 @@ class OwnersController extends Controller
     {
         $this->middleware('auth:admin');
     }
-
+    
     public function index()
     {
         $owners = Owner::select('id','name','created_at','email')
@@ -29,7 +29,7 @@ class OwnersController extends Controller
         compact('owners'));
     }
     
-
+    
     /**
      * Show the form for creating a new resource.
      *
